@@ -10,6 +10,6 @@ public:
 	void input();
 	void verify();
 	void search();
-	
+	~binary_algo() { delete[]list; }
 };
 #endif
