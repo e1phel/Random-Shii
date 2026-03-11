@@ -10,6 +10,6 @@ public:
 	void input();
 	void verify();
 	void search();
-	void disp();
+	
 };
 #endif

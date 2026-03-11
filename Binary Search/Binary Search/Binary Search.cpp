@@ -1,5 +1,5 @@
 #include<iostream>
-#include"binary.h"
+#include"binarya.h"
 
 using namespace std;
 

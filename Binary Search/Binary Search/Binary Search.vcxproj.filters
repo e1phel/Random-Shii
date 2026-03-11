@@ -18,9 +18,12 @@
     <ClCompile Include="Binary Search.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="binary.h">
+    <ClInclude Include="binarya.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

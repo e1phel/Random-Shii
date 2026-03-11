@@ -1,6 +1,5 @@
-#inlcude<iostream>
 #include"binarya.h"
-
+#include<iostream>
 using namespace std;
 
 void binary_algo::input()
@@ -22,12 +21,12 @@ void binary_algo::verify()
 	else
 	{
 		cout << "\n Algorithm WILL NOT work for an unsorted array !!";
-		return 0;
+		exit;
 	}
 }
 void binary_algo::search()
 {
-	int x, y;
+	int x =0, y=0;
 	int* left = new int[x];
 	int* right = new int[y];
 	while (list[size - 1] != target)
