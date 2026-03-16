@@ -30,54 +30,77 @@ void binary_algo::search()
 {
 	int split = 0;
 	int x = 0;
-	int* left = new int[x];
-	int* right = new int[x];
-	//Split============================================
+	bool found = false;
+	//Last Element Check
 	if (list[size - 1] == target)
 	{
-		cout << "\n Target Found !\t" << list[size - 1]<<"on "<<split<<"splits";
-		exit(0);
+		found = true;
+		cout << "\n Number "<<list[size-1]<<" Found On " << split << " Splits";
 	}
-	
 	else
 	{
-		x = size / 2;
-		for (int i = 0; i < x; i++)
-		{
-			left[i] = list[i];
-		}
-		for (int i = x-1; i < size; i++)
-		{
-			int n = 0;
-			right[0+n] = list[i];
-			n++;
-		}
 		split++;
+		//Divide Array
+		int mid;
+		mid = size / 2;
+		cout << endl << mid;
+		int* right = new int[mid];
+		int* left = new int[mid];
+		//R.H.s
+		for (int i = 0; i < mid; i++)
+		{
+			right[i] = list[i];
+		}
+		//L.H.S
+		for (int i = mid-1; i < size; i++)
+		{
+			static int ini = 0;
+			left[ini] = list[i];
+			ini++;
+		}
+		for (int i = 0; i < mid; i++)
+		{
+			cout << "\n Right : " << right[i];
+		}
+		for (int i = 0; i < mid; i++)
+		{
+			cout << "\n Left : " << left[i];
+		}
+		//Look UP
+		while (found == false)
+		{
+			if (list[mid] < target)
+			{
+				if (left[mid - 1] == target)
+				{
+					cout << "\n The Number " << left[mid - 1] << " was found on " << split << " splits";
+					found = true;
+				}
+				else
+				{
+					mid /= 2;
+					split++;
+				}
+
+			}
+			else if (list[mid] > target)
+			{
+				if (right[mid - 1] == target)
+				{
+					cout << "\n The Number " << right[mid - 1] << " was found on " << split << " splits";
+					found = true;
+				}
+				else
+				{
+					mid /= 2;
+					split++;
+				}
+			}
+		}
+		delete[]right;
+		delete[]left;
 	}
-	//===================================================
-	while (tick == true)
-	{
-		//X Split=========================================
-		if (left[x - 1] == target)
-		{
-			cout << "\n Target Found !\t" << list[x - 1]<<" on Split NO "<<split;
-			tick = false;
-			exit;
-		}
-		else if (right[x - 1] == target)
-		{
-			cout << "\n Target Found !\t" << list[x - 1] << " on Split NO " << split;
-			tick = false;
-			exit;
-		}
-		else
-		{
-			x = x / 2;
-			split++;
-		}
-	}
-	delete[]left;
-	delete[]right;
+	
 }
 
 
